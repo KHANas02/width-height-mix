@@ -1,0 +1,50 @@
+@layer support, demo;
+
+@import "https://unpkg.com/open-props" layer(support.design-system);
+
+@layer demo {
+  .box {
+    --_bg: var(--indigo-5);
+    background-color: var(--_bg);
+    
+    transition: border-image-outset .5s var(--ease-spring-5);
+    border-image: var(--gradient-13) fill 0//0px 0px;
+    
+    &.width:hover {
+      border-image-outset: 0px 50px;
+    }
+    
+    &.height:hover {
+      border-image-outset: 50px 0px;
+    }
+    
+    &.both:hover {
+      border-image-outset: 50px 50px;
+    }
+  }
+}
+
+@layer support.demo {
+  html {
+    block-size: 100%;
+    font-family: system-ui, sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    min-block-size: 100%;
+    display: grid;
+    place-content: center;
+    gap: var(--size-10);
+  } 
+  
+  .box {
+    color: white;
+    font-weight: bold;
+    font-size: var(--font-size-3);
+    inline-size: var(--size-content-1);
+    aspect-ratio: var(--ratio-widescreen);
+    display: grid;
+    place-content: center;
+  }
+}
